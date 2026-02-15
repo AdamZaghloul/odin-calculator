@@ -1,32 +1,118 @@
-body {
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-}
-
-#calculator{
-  gap: 8px;
-  flex: 1;
-  background: gray;
-  padding: 8px;
-}
-
-#display{
-    display: flex;
-    justify-content: right;
-    width: 25%;
-    background: white;
-}
-
-.button-row{
-    display: flex;
-    gap: 8px;
-}
-
-button{
-    padding: 32px;
-    margin: 2px;
+* {
+    margin: 0;
+    padding: 0;
     box-sizing: border-box;
-    width: 5%;
-    height: 5%;
+}
+
+body {
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+}
+
+#calculator {
+    background: #1e1e1e;
+    border-radius: 20px;
+    padding: 24px;
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.4);
+    width: 360px;
+}
+
+#display {
+    background: #2d2d2d;
+    color: #ffffff;
+    font-size: 48px;
+    font-weight: 300;
+    text-align: right;
+    padding: 30px 20px;
+    border-radius: 12px;
+    margin-bottom: 20px;
+    min-height: 80px;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    word-wrap: break-word;
+    word-break: break-all;
+    box-shadow: inset 0 2px 8px rgba(0, 0, 0, 0.3);
+}
+
+#buttons {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.button-row {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 12px;
+}
+
+button {
+    border: none;
+    border-radius: 12px;
+    font-size: 24px;
+    font-weight: 500;
+    padding: 24px;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    outline: none;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+button:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
+}
+
+button:active {
+    transform: translateY(0);
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+/* Number buttons */
+.number {
+    background: #505050;
+    color: #ffffff;
+}
+
+.number:hover {
+    background: #606060;
+}
+
+/* Operator buttons */
+.operator {
+    background: #ff9500;
+    color: #ffffff;
+}
+
+.operator:hover {
+    background: #ffaa33;
+}
+
+/* Function buttons (C, +/-, %) */
+.function {
+    background: #a5a5a5;
+    color: #1e1e1e;
+}
+
+.function:hover {
+    background: #b5b5b5;
+}
+
+/* Zero button spans 2 columns */
+.zero {
+    grid-column: span 2;
+}
+
+/* Equals button styling */
+.equals {
+    background: #34c759;
+}
+
+.equals:hover {
+    background: #44d769;
 }
