@@ -1,3 +1,23 @@
+let a = 0;
+let b = 0;
+let op = "";
+let display = document.getElementById("display");
+let activeOp = false;
+const numberButtons = document.querySelectorAll('.number');
+const operatorButtons = document.querySelectorAll('.operator');
+
+numberButtons.forEach(button => {
+    button.addEventListener('click', function(event) {
+        numberPress(button.id)
+    })
+});
+
+operatorButtons.forEach(button => {
+    button.addEventListener('click', function(event) {
+        operatorPress(button.id)
+    })
+});
+
 function add(x, y){
     return x + y;
 }
@@ -18,19 +38,24 @@ function operate(operator, x, y){
     switch(operator){
         case "+":
             return add(x, y);
-            break;
         case "-":
             return subtract(x, y);
-            break;
         case "*":
             return multiply(x, y);
-            break;
         case "/":
             if(y == 0){
                 return "Cannot divite by 0."
-                break;
             }
             return divide(x, y);
-            break;
     }
+}
+
+function numberPress(num){
+    if(display.textContent == 0){
+        display.textContent = ""
+    }
+    
+    display.textContent = display.textContent + num;
+    a = parseFloat(display.textContent)
+    console.log(a)
 }
